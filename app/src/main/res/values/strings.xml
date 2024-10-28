@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">t4a2_example</string>
+    <string name="posicion_global">POSICION GLOBAL</string>
+    <string name="movimientos">MOVIMIENTOS</string>
+    <string name="transferencias">TRANSFERENCIAS</string>
+    <string name="cambiar_contrase_a">CAMBIAR CONTRASEÑA</string>
+    <string name="promociones">PROMOCIONES</string>
+    <string name="cajeros">CAJEROS</string>
+    <string name="salir">SALIR</string>
+</resources>

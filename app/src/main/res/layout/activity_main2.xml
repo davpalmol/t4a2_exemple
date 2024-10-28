@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <!-- BottomAppBar -->
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:navigationIcon="@drawable/baseline_menu_24"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            tools:ignore="BottomAppBar"/>
+
+        <!-- FloatingActionButton anclado al BottomAppBar -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bank"
+            app:layout_anchor="@id/bottom_app_bar"
+            app:layout_anchorGravity="center"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Tarjeta con la imagen y texto -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_min"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="@dimen/common_padding_min"
+            android:clickable="true"
+            app:cardElevation="@dimen/common_padding_min">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="384dp"
+                android:layout_height="136dp"
+                android:paddingStart="@dimen/common_padding_default"
+                android:paddingTop="@dimen/common_padding_default"
+                android:paddingEnd="@dimen/common_padding_default"
+                android:paddingBottom="@dimen/common_padding_default">
+
+                <!-- ImageView alineado a la izquierda -->
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="@dimen/car_img_size"
+                    android:layout_height="@dimen/car_img_size"
+                    android:src="@drawable/bobsponja"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- TextView alineado a la derecha del ImageView -->
+                <TextView
+                    android:id="@+id/bienvenido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="80dp"
+                    android:paddingStart="16dp"
+                    android:text="Bienvenido/a "
+                    android:textSize="22dp"
+                    app:layout_constraintBottom_toBottomOf="@id/img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/img"
+                    app:layout_constraintTop_toTopOf="@id/img" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:stretchColumns="*"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/posicion"
+                    android:text="@string/posicion_global"
+                    android:id="@+id/but1"
+                    android:textSize="15sp"
+                    android:drawablePadding="8dp"
+                    style="@style/SquareButton" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/movimientos"
+                    android:drawableLeft="@drawable/movimientos"
+                    android:id="@+id/but2"
+                    android:textSize="15sp"
+                    style="@style/SquareButton"/>/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/transferencias"
+                    android:id="@+id/but3"
+                    android:drawableLeft="@drawable/transferencias"
+                    android:textSize="15sp"
+                    style="@style/SquareButton"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/cambiar_contrase_a"
+                    android:drawableLeft="@drawable/cambiar_contrasenya"
+                    android:id="@+id/but4"
+                    android:textSize="15sp"
+                    style="@style/SquareButton"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/promociones"
+                    android:text="@string/promociones"
+                    android:id="@+id/but5"
+                    android:textSize="15sp"
+                    style="@style/SquareButton"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/cajeros"
+                    android:text="@string/cajeros"
+                    android:id="@+id/but6"
+                    android:textSize="15sp"
+                    style="@style/SquareButton"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/salir"
+                    android:text="@string/salir"
+                    android:id="@+id/but7"
+                    android:textSize="15sp"
+                    style="@style/SquareButton"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
