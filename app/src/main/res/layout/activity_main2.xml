@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    tools:context=".activities.MainActivity2">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/posicion"
                     android:text="@string/posicion_global"
-                    android:id="@+id/but1"
+                    android:id="@+id/btnPosicionGlobal"
                     android:textSize="15sp"
                     android:drawablePadding="8dp"
                     style="@style/SquareButton" />
@@ -121,9 +121,9 @@
                     android:layout_height="match_parent"
                     android:text="@string/movimientos"
                     android:drawableLeft="@drawable/movimientos"
-                    android:id="@+id/but2"
+                    android:id="@+id/btnMovimientos"
                     android:textSize="15sp"
-                    style="@style/SquareButton"/>/>
+                    style="@style/SquareButton"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -132,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/transferencias"
-                    android:id="@+id/but3"
+                    android:id="@+id/btnTransferencias"
                     android:drawableLeft="@drawable/transferencias"
                     android:textSize="15sp"
                     style="@style/SquareButton"/>

@@ -1,4 +1,4 @@
-package com.example.t4a2_exemple
+package com.example.t5a3_palet_david
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

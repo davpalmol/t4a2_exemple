@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <!-- Imagen representativa del movimiento -->
+    <ImageView
+        android:id="@+id/imgMovimiento"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/imgmovimiento" />
+
+    <!-- Información del movimiento -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
+
+        <!-- Descripción del movimiento -->
+        <TextView
+            android:id="@+id/textViewDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción del Movimiento"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Importe del movimiento -->
+        <TextView
+            android:id="@+id/textViewImporte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Importe"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_red_dark" />
+
+    </LinearLayout>
+
+</LinearLayout>

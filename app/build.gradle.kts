@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.t4a2_exemple"
+    namespace = "com.example.t5a3_palet_david"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.t4a2_exemple"
+        applicationId = "com.example.t5a3_palet_david"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

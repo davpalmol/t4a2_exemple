@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TransferActivity">
+
+    <TextView
+        android:id="@+id/transferenciaTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transferencias"
+        android:fontFamily="@font/font_baroak"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <TextView
+        android:id="@+id/eligeCuentaTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elige tu cuenta:"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transferenciaTrans">
+    </TextView>
+
+    <Spinner
+        android:id="@+id/spinnerTrans"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eligeCuentaTrans">
+    </Spinner>
+
+    <RadioGroup
+        android:id="@+id/radiogroupTrans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTrans"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
+
+
+        <RadioButton
+            android:id="@+id/propiaTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuenta Propia"
+            android:layout_marginStart="80dp">
+
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/ajenaTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuenta ajena"
+            android:layout_marginStart="0dp">
+
+        </RadioButton>
+    </RadioGroup>
+
+
+    <Spinner
+        android:id="@+id/spinner2Trans"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupTrans"
+        android:visibility="visible">
+    </Spinner>
+
+    <EditText
+        android:id="@+id/etNumeroCuentaTrans"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Numero de cuenta"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupTrans"
+        android:visibility="gone">
+
+    </EditText>
+    <TextView
+        android:id="@+id/cantidadTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad:"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupTrans">
+    </TextView>
+
+    <EditText
+        android:id="@+id/etCantidadTrans"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintStart_toEndOf="@id/cantidadTrans"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupTrans"
+        />
+
+    <Spinner
+        android:id="@+id/divisasTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/etCantidadTrans"
+        app:layout_constraintTop_toTopOf="@id/etCantidadTrans">
+    </Spinner>
+
+    <CheckBox
+        android:id="@+id/justificanteTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Enviar justificante"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCantidadTrans">
+    </CheckBox>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/butEnviarTrans"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:cornerRadius="6dp"
+        android:text="ENVIAR"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/justificanteTrans">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/butCancelarTrans"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        app:cornerRadius="6dp"
+        android:text="CANCELAR"
+        android:textSize="15dp"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toEndOf="@+id/butEnviarTrans"
+        app:layout_constraintTop_toBottomOf="@+id/justificanteTrans">
+    </com.google.android.material.button.MaterialButton>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
