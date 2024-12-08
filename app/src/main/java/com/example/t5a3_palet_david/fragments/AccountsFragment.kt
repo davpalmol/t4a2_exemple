@@ -17,7 +17,6 @@ import com.example.t5a3_palet_david.pojo.Cuenta
 
 private const val ARG_CLIENTE = "cliente"
 
-
 class AccountsFragment : Fragment(), AccountsListener {
 
     private lateinit var binding: FragmentAccountsBinding

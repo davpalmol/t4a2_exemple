@@ -1,9 +1,8 @@
-package com.example.t5a3_palet_david
+package com.example.t5a3_palet_david.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
+import com.example.t5a3_palet_david.R
 import com.example.t5a3_palet_david.adapters.AccountsListener
 import com.example.t5a3_palet_david.fragments.AccountsFragment
 import com.example.t5a3_palet_david.fragments.AccountsMovementsFragment
@@ -25,7 +24,7 @@ class GlobalPositionDetailsActivity : AppCompatActivity(), AccountsListener {
         if (savedInstanceState == null) {
             val accountsFragment = AccountsFragment.newInstance(cliente)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.contenedorCuentas, accountsFragment)
+                .replace(R.id.frag_movimiento, accountsFragment)
                 .commit()
         }
     }
@@ -36,7 +35,7 @@ class GlobalPositionDetailsActivity : AppCompatActivity(), AccountsListener {
 
         // Reemplazar el fragmento de movimientos en el contenedor correspondiente
         supportFragmentManager.beginTransaction()
-            .replace(R.id.contenedorMovimientos, movimientoFragment)
+            .replace(R.id.frag_movimiento, movimientoFragment)
             .addToBackStack(null) // Permite volver a la lista de cuentas
             .commit()
     }

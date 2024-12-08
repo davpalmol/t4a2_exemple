@@ -19,7 +19,7 @@
         tools:context="com.example.t5a3_palet_david.fragments.AccountsMovementsFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewCuentas"
+            android:id="@+id/recyclerViewMovimientos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"

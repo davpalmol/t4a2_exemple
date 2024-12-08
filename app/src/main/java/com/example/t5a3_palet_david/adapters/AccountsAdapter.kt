@@ -32,6 +32,7 @@ class AccountsAdapter(
             binding.textViewNumeroCuenta.text = cuenta.getNumeroCuenta()
             binding.textViewSaldo.text = cuenta.getSaldoActual().toString()
             binding.textViewBanco.text = cuenta.getBanco()
+            setListener(cuenta)
         }
     }
 
