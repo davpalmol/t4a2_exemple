@@ -1,57 +1,99 @@
 package com.example.t5a3_palet_david.activities
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.t5a3_palet_david.R
+import com.example.t5a3_palet_david.databinding.ActivityMain2Binding
 import com.example.t5a3_palet_david.pojo.Cliente
 
 class MainActivity2 : AppCompatActivity() {
 
-    private lateinit var btnPosicionGlobal: Button
-    private lateinit var btnMovimientos: Button
-    private lateinit var btnTransfencias: Button
+    private lateinit var binding: ActivityMain2Binding
+    private lateinit var drawerLayout: DrawerLayout
 
-
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Configuramos la vista
-        setContentView(R.layout.activity_main2)
-
-        // Recibimos el cliente desde el Intent
+        // Recibir cliente del Intent
         val cliente = intent.getSerializableExtra("Cliente") as? Cliente
 
-        // Inicializamos los botones
-        btnPosicionGlobal = findViewById(R.id.btnPosicionGlobal)
-        btnMovimientos = findViewById(R.id.btnMovimientos)
-        btnTransfencias = findViewById(R.id.btnTransferencias)
+        // Configurar Toolbar
+        setSupportActionBar(binding.toolbar)
 
-        // Configuramos los listeners para los botones
+        drawerLayout = findViewById(R.id.drawer_layout)
 
-        btnPosicionGlobal.setOnClickListener {
-            // Crear un Intent para abrir la pantalla de "Posición Global"
+        // Configurar DrawerLayout con Toolbar
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, binding.toolbar,
+            R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        // Configurar Navigation Drawer
+        binding.navView?.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    val intent = Intent(this, MainActivity2::class.java)
+                    intent.putExtra("Cliente", cliente)
+                    startActivity(intent)
+                }
+
+                R.id.posicion_global -> {
+                    val intent = Intent(this, GlobalPositionActivity::class.java)
+                    intent.putExtra("Cliente", cliente)
+                    startActivity(intent)
+                }
+
+                R.id.movimientos -> {
+                    val intent = Intent(this, MovimientosActivity::class.java)
+                    intent.putExtra("Cliente", cliente)
+                    startActivity(intent)
+                }
+
+                R.id.transferencias -> {
+                    val intent = Intent(this, TransferActivity::class.java)
+                    intent.putExtra("Cliente", cliente)
+                    startActivity(intent)
+                }
+            }
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
+
+        // Configurar listeners para todos los botones
+        binding.btnPosicionGlobal.setOnClickListener {
             val intent = Intent(this, GlobalPositionActivity::class.java)
-            // Pasamos el cliente al Intent para que pueda acceder a sus cuentas
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }
 
-        btnMovimientos.setOnClickListener {
-            // Crear un Intent para abrir la pantalla de "Movimientos"
+        binding.btnMovimientos.setOnClickListener {
             val intent = Intent(this, MovimientosActivity::class.java)
-            // Pasamos el cliente al Intent para que pueda acceder a sus cuentas
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }
 
-        btnTransfencias.setOnClickListener {
+        binding.btnTransferencias?.setOnClickListener {
             val intent = Intent(this, TransferActivity::class.java)
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
+        }
+
+
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
     }
 }

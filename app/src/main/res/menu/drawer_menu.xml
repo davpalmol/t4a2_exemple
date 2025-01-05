@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:title="Inicio"
+        android:icon="@drawable/ic_home" />
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Configuración"
+        android:icon="@drawable/ic_settings" />
+    <item
+        android:id="@+id/posicion_global"
+        android:title="POSICION GLOBAL"
+        android:icon="@drawable/baseline_account_balance_24" />
+    <item
+        android:id="@+id/movimientos"
+        android:title="MOVIMIENTOS"
+        android:icon="@drawable/ic_movements" />
+    <item
+        android:id="@+id/transferencias"
+        android:title="TRANSFERENCIAS"
+        android:icon="@drawable/ic_transfer" />
+    <item
+        android:id="@+id/promociones"
+        android:title="PROMOCIONES"
+        android:icon="@drawable/ic_promotions" />
+    <item
+        android:id="@+id/cajeros"
+        android:title="CAJEROS"
+        android:icon="@drawable/ic_cajero" />
+
+</menu>

@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">t4a2_example</string>
-    <string name="posicion_global">POSICION GLOBAL</string>
-    <string name="movimientos">MOVIMIENTOS</string>
-    <string name="transferencias">TRANSFERENCIAS</string>
-    <string name="cambiar_contrase_a">CAMBIAR CONTRASEÑA</string>
-    <string name="promociones">PROMOCIONES</string>
-    <string name="cajeros">CAJEROS</string>
-    <string name="salir">SALIR</string>
+    <string name="posicion_global">GLOBAL POSITION</string>
+    <string name="movimientos">MOVEMENTS</string>
+    <string name="transferencias">TRANSFERS</string>
+    <string name="cambiar_contrase_a">CHANGE PASSWORD</string>
+    <string name="promociones">PROMOTIONS</string>
+    <string name="cajeros">ATM</string>
+    <string name="salir">EXIT</string>
+    <string name="navigation_drawer_open">Open navegation menu</string>
+    <string name="navigation_drawer_close">Close navegation menu</string>
 
     <string-array name="numeros_cuentas">
         <item>ES23 2342 2342 2342</item>
