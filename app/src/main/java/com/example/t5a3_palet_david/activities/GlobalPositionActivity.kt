@@ -1,5 +1,6 @@
 package com.example.t5a3_palet_david.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -43,16 +44,16 @@ class GlobalPositionActivity : AppCompatActivity(), AccountsListener {
     override fun onCuentaSeleccionada(cuenta: Cuenta) {
         if (cuenta != null) {
             val hayDetalle = findViewById<View?>(R.id.frag_movimiento) != null
-            val movimientoFragment = AccountsMovementsFragment.newInstance(cuenta)
 
             if (hayDetalle) {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.frag_movimiento, movimientoFragment)
-                    .commit()
+                val intent = Intent(this, GlobalPositionDetailsActivity::class.java)
+                intent.putExtra("Cuenta", cuenta)
+                startActivity(intent)
+
             } else {
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.contenedorFragments, movimientoFragment)
-                    .commit()
+                val intent = Intent(this, GlobalPositionDetailsActivity::class.java)
+                intent.putExtra("Cuenta", cuenta)
+                startActivity(intent)
             }
         }
     }

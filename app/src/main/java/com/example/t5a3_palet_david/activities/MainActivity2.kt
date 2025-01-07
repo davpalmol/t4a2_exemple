@@ -75,7 +75,7 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         binding.btnMovimientos.setOnClickListener {
-            val intent = Intent(this, MovimientosActivity::class.java)
+            val intent = Intent(this, GlobalPositionDetailsActivity::class.java)
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }

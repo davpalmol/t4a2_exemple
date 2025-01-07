@@ -7,22 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.t5a3_palet_david.R
-import com.example.t5a3_palet_david.adapters.AccountsAdapter
 import com.example.t5a3_palet_david.adapters.MovimientosAdapter
 import com.example.t5a3_palet_david.bd.MiBancoOperacional
 import com.example.t5a3_palet_david.databinding.FragmentAccountsMovementsBinding
-import com.example.t5a3_palet_david.pojo.Cliente
 import com.example.t5a3_palet_david.pojo.Cuenta
 import com.example.t5a3_palet_david.pojo.Movimiento
+import android.util.Log
 
 class AccountsMovementsFragment : Fragment() {
 
     private lateinit var movimientosAdapter: MovimientosAdapter
-    private lateinit var linearLayoutManager: LinearLayoutManager
-    private lateinit var itemDecoration: DividerItemDecoration
     private lateinit var binding: FragmentAccountsMovementsBinding
     private lateinit var cuenta: Cuenta
+    private lateinit var listaMovimientosOriginal: List<Movimiento>
 
     companion object {
         @JvmStatic
@@ -38,31 +35,39 @@ class AccountsMovementsFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             cuenta = it.getSerializable("cuenta") as Cuenta
+            Log.d("AccountsMovementsFragment", "Cuenta recibida: $cuenta")
         }
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAccountsMovementsBinding.inflate(inflater, container, false)
+
         val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(context)
+        listaMovimientosOriginal = (mbo?.getMovimientos(cuenta) ?: emptyList()) as List<Movimiento>
+        Log.d("AccountsMovementsFragment", "Movimientos cargados: ${listaMovimientosOriginal.size}")
 
-        val listaMovimientos: List<Movimiento> = mbo?.getMovimientos(cuenta as Cuenta) as List<Movimiento>
-
-        movimientosAdapter = MovimientosAdapter(listaMovimientos)
-        linearLayoutManager = LinearLayoutManager(context)
-        itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
-
+        movimientosAdapter = MovimientosAdapter(listaMovimientosOriginal)
         binding.recyclerViewMovimientos.apply {
-            layoutManager = linearLayoutManager
+            layoutManager = LinearLayoutManager(context)
             adapter = movimientosAdapter
-            addItemDecoration(itemDecoration)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
+
         return binding.root
     }
 
-
+    fun filterMovimientos(filter: String) {
+        val filteredList = when (filter) {
+            "all" -> listaMovimientosOriginal
+            "income" -> listaMovimientosOriginal.filter { it.getTipo() == 0 }
+            "expense" -> listaMovimientosOriginal.filter { it.getTipo() == 1 }
+            "transfer" -> listaMovimientosOriginal.filter { it.getTipo() == 2 }
+            else -> listaMovimientosOriginal
+        }
+        Log.d("AccountsMovementsFragment", "Filtro aplicado: $filter, Movimientos filtrados: ${filteredList.size}")
+        movimientosAdapter.updateData(filteredList)
+    }
 }

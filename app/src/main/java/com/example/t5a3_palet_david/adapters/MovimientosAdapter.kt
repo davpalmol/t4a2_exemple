@@ -35,4 +35,9 @@ class MovimientosAdapter(private var movimientos: List<Movimiento>) :
         }
     }
 
+    fun updateData(newMovimientos: List<Movimiento>) {
+        movimientos = newMovimientos
+        notifyDataSetChanged()
+    }
+
 }
