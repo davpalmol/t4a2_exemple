@@ -9,6 +9,8 @@
     <string name="salir">EXIT</string>
     <string name="navigation_drawer_open">Open navegation menu</string>
     <string name="navigation_drawer_close">Close navegation menu</string>
+    <string name="settings">Configuration</string>
+    <string name="multimedia">multimeda</string>
 
     <string-array name="numeros_cuentas">
         <item>ES23 2342 2342 2342</item>

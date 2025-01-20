@@ -45,6 +45,12 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
 
+                R.id.nav_settings -> {
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    intent.putExtra("Cliente", cliente)
+                    startActivity(intent)
+                }
+
                 R.id.posicion_global -> {
                     val intent = Intent(this, GlobalPositionActivity::class.java)
                     intent.putExtra("Cliente", cliente)
@@ -82,6 +88,12 @@ class MainActivity2 : AppCompatActivity() {
 
         binding.btnTransferencias?.setOnClickListener {
             val intent = Intent(this, TransferActivity::class.java)
+            intent.putExtra("Cliente", cliente)
+            startActivity(intent)
+        }
+
+        binding.botonCajero?.setOnClickListener {
+            val intent = Intent(this, AtmManagementActivity::class.java)
             intent.putExtra("Cliente", cliente)
             startActivity(intent)
         }

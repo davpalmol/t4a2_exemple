@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.T4a2_exemple" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/verd</item>
+        <item name="colorPrimary">@color/verd</item>
+        <item name="android:textColor">@color/verd</item>
     </style>
 
     <style name="SquareButton" parent="Widget.AppCompat.Button">
